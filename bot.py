@@ -9,28 +9,28 @@ products = {
 		'available': 10,
 		'short_info': 'Arduino Nano - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 8 yoki 16hz chastotada ishlaydi',
 		'video_tutorial': 'https://website.org/arduino_nano',
-		'image_path': './img/arduino_nano.jpg'
+		'image_url': './img/arduino_nano.jpg'
 	},
 	'arduino uno': {
 		'price': 70,
 		'available': 1,
 		'short_info': 'Arduino Uno - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 16hz chastotada ishlaydi',
 		'video_tutorial': 'https://website.org/arduino_uno',
-		'image_path': './img/arduino_uno.jpg'
+		'image_url': './img/arduino_uno.jpg'
 	},
 	'LCD display': {
 		'price': 20,
 		'available': 16,
 		'short_info': 'LCD display - bu kichik bir ekrancha, u yordamida har hil matn malumot, yoki binary media chiqarishingiz mumkin',
 		'video_tutorial': 'https://website.org/lcd_display',
-		'image_path': './img/lcd_display.jpg'
+		'image_url': './img/lcd_display.jpg'
 	},
 	'servo motor': {
 		'price': 15,
 		'available': 13,
 		'short_info': 'Servo motor - bu burilish burchagini sozlash imkoniyatiga ega kichik bir motorcha',
 		'video_tutorial': False,
-		'image_path': './img/servo_motor.jpg'
+		'image_url': './img/servo_motor.jpg'
 	}
 }
 
@@ -57,7 +57,7 @@ def serve(message):
 			else:
 				answer += 'Video darslik hali tayyor emas.'
 			found = True
-			bot.send_photo(chat_id, photo=open(products[i]['image_path'], 'rb'), parse_mode='html', caption=answer)
+			bot.send_photo(chat_id, photo=products[i]['image_url'], parse_mode='html', caption=answer)
 			break
 		else:
 			answer = 'Afsuski, siz qidirayotgan tovar tugab qolgan yoki bizga hali yetib kelmagan'
