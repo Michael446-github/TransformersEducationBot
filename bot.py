@@ -25,11 +25,11 @@ products = {
 		'video_tutorial': 'https://website.org/lcd_display',
 		'image_path': './img/lcd_display.jpg'
 	},
-	'Servo motor': {
+	'servo motor': {
 		'price': 15,
 		'available': 13,
-		'short_info': 'Servo motor - bu burilish burchagini sozlash imkoniyatiga ega kichik bir motorcha.',
-		'video_tutorial': 'https://website.org/servo_motor',
+		'short_info': 'Servo motor - bu burilish burchagini sozlash imkoniyatiga ega kichik bir motorcha',
+		'video_tutorial': False,
 		'image_path': './img/servo_motor.jpg'
 	}
 }
@@ -37,7 +37,7 @@ products = {
 @bot.message_handler(commands=['start', 'help'])
 def welcome(message):
 	chat_id = message.chat.id
-	welcome_data = 'Assalomu Aleykum! Men Transformer Education o\'quv markazining hizmat botiman. Men sizga har hil datchiklar haqida malumot, narx-navo va o\'quv manbalar berishim mumkin. Shunchaki biror datchik, modul yoki plata nomini kiriting.'
+	welcome_data = 'Assalomu Aleykum' + '! Men Transformers Education o\'quv markazining hizmat botiman. Men sizga har hil datchiklar haqida malumot, narx-navo va o\'quv manbalar berishim mumkin. Shunchaki biror datchik, modul yoki plata nomini kiriting.'
 	bot.send_photo(chat_id, photo=open('./img/logo.jpg', 'rb'), caption=welcome_data)
 
 @bot.message_handler(func=lambda message: True)
@@ -47,8 +47,15 @@ def serve(message):
 	message_text = message.text
 	found = False
 	for i in products.keys():
-		if i == message_text and products[i]['available'] != 0:
-			answer = '<b>' + str(message_text).capitalize() + '</b>' + ' mavjud. U haqida qisqacha malumot: \n\n<b>Narxi:</b> ' + str(products[i]['price']) + '000 so\'m' + '\n\nSoni: ' + str(products[i]['available']) + 'ta' + '\n\n<b>Malumot:</b>\n ' + str(products[i]['short_info']) + '\n\n<b>Video darslik:</b> ' + str(products[i]['video_tutorial'])
+		if i in [message_text, message_text.upper(), message_text.lower(), message_text.capitalize] and products[i]['available'] != 0:
+			answer = '<b>' + message_text.capitalize() + '</b>' + ' mavjud. U haqida qisqacha ma\'lumot:\n\n' 
+			answer +=  '<b>' + 'Narxi: ' + '</b>' + str(products[i]['price']) + '000so\'m.\n\n' 
+			answer +=  '<b>' + 'Soni: ' + '</b>' + str(products[i]['available']) + 'ta qolgan.\n\n'
+			answer +=  '<b>' + 'Ma\'lumot: ' + '</b>' + products[i]['short_info'] + '.\n\n'
+			if products[i]['video_tutorial']:
+				answer +=  '<b>' + 'Video Darslik ' + '</b>' + '<a href="' + products[i]['video_tutorial'] + '">bu yerda</a>' + '.'
+			else:
+				answer += 'Video darslik hali tayyor emas.'
 			found = True
 			bot.send_photo(chat_id, photo=open(products[i]['image_path'], 'rb'), parse_mode='html', caption=answer)
 			break
