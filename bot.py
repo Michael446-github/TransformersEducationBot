@@ -18,7 +18,7 @@ products = {
 		'video_tutorial': 'https://website.org/arduino_uno',
 		'image_url': './img/arduino_uno.jpg'
 	},
-	'LCD display': {
+	'lcd display': {
 		'price': 20,
 		'available': 16,
 		'short_info': 'LCD display - bu kichik bir ekrancha, u yordamida har hil matn malumot, yoki binary media chiqarishingiz mumkin',
