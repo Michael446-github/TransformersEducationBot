@@ -1,40 +1,49 @@
 {
 	"products": [
 		{
-		"id": "A0",
-		"name": "arduino nano",
-		"price": 40,
-		"available": 10,
-		"short_info": "Arduino Nano - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 8 yoki 16hz chastotada ishlaydi",
-		"entire_info": "https://website.org/arduino_nano",
-		"image_url": "https://user-images.githubusercontent.com/64916997/84414070-e6435e00-ac2a-11ea-97e2-da4d3b0cf81a.jpg"
+			"id": "A0",
+			"name": "arduino nano",
+			"price": 40,
+			"available": 10,
+			"short_info": "Arduino Nano - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 8 yoki 16hz chastotada ishlaydi",
+			"entire_info": "https://website.org/arduino_nano",
+			"image_url": "https://user-images.githubusercontent.com/64916997/84414070-e6435e00-ac2a-11ea-97e2-da4d3b0cf81a.jpg"
 		},
 		{
-		"id": "A1",
-		"name": "arduino uno",
-		"price": 70,
-		"available": 2,
-		"short_info": "Arduino Uno - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 16hz chastotada ishlaydi",
-		"entire_info": "https://website.org/arduino_uno",
-		"image_url": "https://user-images.githubusercontent.com/64916997/84414072-e6dbf480-ac2a-11ea-9ef5-0759d617e141.jpg"
+			"id": "A1",
+			"name": "arduino uno",
+			"price": 70,
+			"available": 2,
+			"short_info": "Arduino Uno - Arduino platalar oilasiga mansub bir kontroller. Atmega328p-u mikrokontrollerida, 16hz chastotada ishlaydi",
+			"entire_info": "https://website.org/arduino_uno",
+			"image_url": "https://user-images.githubusercontent.com/64916997/84414072-e6dbf480-ac2a-11ea-9ef5-0759d617e141.jpg"
 		},
 		{
-		"id": "B0",
-		"name": "lcd display",
-		"price": 20,
-		"available": 16,
-		"short_info": "LCD display - bu kichik bir ekrancha, u yordamida har hil matn malumot, yoki binary media chiqarishingiz mumkin",
-		"entire_info": "https://website.org/lcd_display",
-		"image_url": "https://user-images.githubusercontent.com/64916997/84414084-e8a5b800-ac2a-11ea-95bf-659ec38f44ff.jpg"
+			"id": "B0",
+			"name": "lcd display",
+			"price": 20,
+			"available": 16,
+			"short_info": "LCD display - bu kichik bir ekrancha, u yordamida har hil matn malumot, yoki binary media chiqarishingiz mumkin",
+			"entire_info": "https://website.org/lcd_display",
+			"image_url": "https://user-images.githubusercontent.com/64916997/84414084-e8a5b800-ac2a-11ea-95bf-659ec38f44ff.jpg"
 		},
 		{
-		"id": "C0",
-		"name": "servo motor",
-		"price": 15,
-		"available": 13,
-		"short_info": "Servo motor - bu burilish burchagini sozlash imkoniyatiga ega kichik bir motorcha",
-		"entire_info": "https://website.org/servo_motor",
-		"image_url": "https://user-images.githubusercontent.com/64916997/84414099-ed6a6c00-ac2a-11ea-935e-9e0fa8620fe7.jpg"
+			"id": "C0",
+			"name": "servo motor",
+			"price": 15,
+			"available": 13,
+			"short_info": "Servo motor - bu burilish burchagini sozlash imkoniyatiga ega kichik bir motorcha",
+			"entire_info": "https://website.org/servo_motor",
+			"image_url": "https://user-images.githubusercontent.com/64916997/84414099-ed6a6c00-ac2a-11ea-935e-9e0fa8620fe7.jpg"
+		},
+		{
+			"id": "C1",
+			"name": "shagovik",
+			"price": 18,
+			"available": 7,
+			"short_info": "Siz bergan qadam boyicha aylanadigan motor",
+			"entire_info": "https://website.org/stepper_motor",
+			"image_url": "https://user-images.githubusercontent.com/64916997/84426878-607cde00-ac3d-11ea-9a7d-e6bde126a8c7.png"
 		}
 	]
 }

@@ -43,8 +43,8 @@ def serve(message):
 		# create an HTML markup for the answer
 
 		answer = '<b>' + message_text.capitalize() + '</b>' + ' mavjud. U haqida:\n\n'
+		answer +=  '<b>' + 'ID: ' + '</b>' + products[product]['id'] + '\n\n' 
 		answer +=  '<b>' + 'Narxi: ' + '</b>' + str(products[product]['price']) + '000so\'m.\n\n' 
-		answer +=  '<b>' + 'ID: ' + '</b>' + products[product]['id'] + '000so\'m.\n\n' 
 		answer +=  '<b>' + 'Soni: ' + '</b>' + str(products[product]['available']) + 'ta qolgan.\n\n'
 		answer +=  '<b>' + 'Ma\'lumot: ' + '</b>' + products[product]['short_info'] + '.\n\n'
 		answer +=  '<b>' + 'To\'liq ma\'lumot ' + '</b>' + '<a href="' + products[i]['entire_info'] + '">bu yerda</a>' + '.'
