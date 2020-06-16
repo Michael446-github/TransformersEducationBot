@@ -1,9 +1,13 @@
-import telebot as tb # pyTelegramBotAPI
-import json  # for working with .json files
+import json
+import logging
+from aiogram import Bot, Dispatcher, executor, types
 
+TOKEN = '1170507053:AAEV4pYWfIerISpthd2ULz9-_36SyeCkPi0'
 
-TOKEN = '1170507053:AAEV4pYWfIerISpthd2ULz9-_36SyeCkPi0' # bot token, tke it from botfather
-bot = tb.TeleBot(TOKEN)
+logging.basicConfig(level=logging.INFO)
+
+bot = Bot(token=TOKEN)
+dp = Dispatcher(bot)
 
 file_path = "products.json" # path to .json product list
 with open(file_path, "r") as read_file:
@@ -11,17 +15,14 @@ with open(file_path, "r") as read_file:
 
 products = data['products']
 
-@bot.message_handler(commands=['start', 'help']) # if first use of needs help:
-def welcome(message):
-	chat_id = message.chat.id
+@dp.message_handler(commands=['start', 'help']) # if first use of needs help:
+async def welcome(message):
 	welcome_data = 'Assalomu Aleykum' + '! Men Transformers Education o\'quv markazining hizmat botiman. Men sizga har hil datchiklar haqida malumot,narx-navo va o\'quv manbalar berishim mumkin. Shunchaki biror datchik, modul yoki plata nomini kiriting.'
-	bot.send_photo(chat_id, photo='https://user-images.githubusercontent.com/64916997/84414095-eba0a880-ac2a-11ea-999a-29364be2ab21.jpg', caption=welcome_data) # greeting.
+	await message.reply_photo('https://user-images.githubusercontent.com/64916997/84414095-eba0a880-ac2a-11ea-999a-29364be2ab21.jpg', caption=welcome_data) # greeting.
 
 
-@bot.message_handler(func=lambda message: True) # in all other cases
-def serve(message):
-	chat_id = message.chat.id # predefine chat id
-
+@dp.message_handler() # in all other cases
+async def serve(message):
 	answer = '' # predefine answer
 	product = '' # predefine chosen product
 	message_text = message.text # predefine text message
@@ -50,12 +51,11 @@ def serve(message):
 		answer +=  '<b>' + 'To\'liq ma\'lumot ' + '</b>' + '<a href="' + products[i]['entire_info'] + '">bu yerda</a>' + '.'
 
 		try:
-			bot.send_photo(chat_id, photo=products[product]['image_url'], parse_mode='html', caption=answer) # send photo
+			await message.reply_photo(products[product]['image_url'], parse_mode='html', caption=answer) # send photo
 		except:
-			bot.send_message(chat_id, "Nimadir noto'g'ri ketdi, iltimos qayta urunib ko'ring yoki birozdan keyin urunib ko'ring!") # send error message
+			await message.answer("Nimadir noto'g'ri ketdi, iltimos qayta urunib ko'ring yoki birozdan keyin urunib ko'ring!") # send error message
 	else:
 		answer = 'Afsuski, siz qidirayotgan tovar tugab qolgan yoki bizga hali yetib kelmagan.' # send "not found" message
-		bot.send_message(chat_id, answer)
+		await message.answer(answer)
 
-
-bot.polling(none_stop=True)
+executor.start_polling(dp, skip_updates=True)
