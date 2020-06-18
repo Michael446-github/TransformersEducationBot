@@ -24,7 +24,7 @@ products = data['products']
 
 @dp.message_handler(commands=['start', 'help']) # if first use or needs help:
 async def welcome(message):
-	await message.reply_photo('https://user-images.githubusercontent.com/64916997/84414095-eba0a880-ac2a-11ea-999a-29364be2ab21.jpg', parse_mode='html' caption=welcome_message) # greeting.
+	await message.reply_photo('https://user-images.githubusercontent.com/64916997/84414095-eba0a880-ac2a-11ea-999a-29364be2ab21.jpg', parse_mode='html', caption=welcome_message) # greeting.
 
 
 @dp.message_handler() # in all other cases
@@ -56,7 +56,7 @@ async def serve(message):
 		answer +=  '<b>' + 'To\'liq ma\'lumot ' + '</b>' + '<a href="' + products[i]['entire_info'] + '">bu yerda</a>' + '.'
 
 		try:
-			await message.reply_photo(products[product]['image_url'], parse_mode='html', caption=answer) # send photo
+			await message.answer_photo(products[product]['image_url'], parse_mode='html', caption=answer) # send photo
 		except:
 			await message.answer(error_message) # send error message
 	else:
